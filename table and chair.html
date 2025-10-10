@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Heritage Lounging</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* GLOBAL RESET & BODY STYLES */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #DDDAD0; 
+            margin: 0;
+            padding: 0; 
+        }
+
+        /* === HEADER BAR (Dark Navigation) FIXES === */
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px; 
+            background-color: #09122C; 
+            color: white; 
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box; 
+        }
+
+        .header-icons a {
+            color: white;
+            font-size: 24px;
+            margin-left: 15px; 
+            text-decoration: none;
+        }
+
+        .company-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: white; 
+        }
+
+        /* === MAIN HEADING & FILTERS === */
+        h1 {
+            text-align: center;
+            color: #222831; 
+            /* Add margin to separate it visually from the header bar */
+            margin-top: 30px; 
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            /* Adjust margin to create space above/below filters */
+            margin: 20px 0 30px 0; 
+        }
+
+        input[type="text"], select {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* === PRODUCT CONTAINER & CARDS === */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 10px 50px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .price {
+            color: #b12704;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .view-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .view-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .cart-btn {
+            background-color: #333;
+            color: white;
+        }
+
+        .cart-btn:hover {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header-bar">
+        <div class="company-name">
+            The Royal Nakashi Heritage
+        </div>
+        <div class="header-icons">
+            <a href="#" title="Wishlist"><i class="fa-regular fa-heart"></i></a>
+            <a href="#" title="Shopping Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+    </div>
+    <h1>The Heritage Lounging </h1>
+
+    <div class="filters">
+        <input type="text" id="search" placeholder="Search (Modern , Traditional)">
+        <select id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="table">Table</option>
+            <option value="chair">Chair</option>
+            <option value="set">Set</option>
+        </select>
+        <select id="priceFilter">
+            <option value="all">All Prices</option>
+            <option value="low">Below ₹10,000</option>
+            <option value="mid">₹10,000 - ₹20,000</option>
+            <option value="high">Above ₹20,000</option>
+        </select>
+    </div>
+
+    <div class="product-container" id="productContainer"></div>
+
+    <script>
+        const products = [
+           {
+        name: "The Heritage Carved Side Table",
+        price: 21300,
+        type: "table",
+        desc: "A classic square side table featuring elegantly curved legs and a rich, dark wood finish. The tabletop inset showcases a detailed, colorful medallion design, likely brass or hand-painted metal, framed in red and green accents. It's ideal as a lamp table or accent piece.",
+        img: "images/t1.jpeg"
+      },
+            {
+                name: "Mughal Console with Drawers",
+                price: 59500,
+                type: "table",
+                desc: "A substantial console table featuring three drawers with detailed hand-painted panels in traditional floral and geometric patterns. The frame is heavily carved, especially on the side supports, adding a rustic yet regal look. Perfect for an entryway or living room display.",
+                // Corrected path to match previous correct files:
+                img: "images/t2.jpeg"
+            },
+            {
+                name: "Octagonal Marble & Tile End Table",
+                price: 37500,
+                type: "table",
+                desc: "A unique, octagonal end table combining natural elements. It features a solid, light-colored marble top and a wooden body with cutout details. The sides incorporate striking ceramic or painted tile insets, giving it a distinctive Moroccan or Mediterranean flair.",
+                // FIX 4: Corrected image path to match previous correct fainted ceramic or tile inserts with floral motifs, a feature sometimes seen in South Indian Chettinad or vintage design",
+                img: "images/t3.jpeg" 
+            },
+            {
+                name: "The Half-Moon Carved Console",
+                price: 20300,
+                type: "table",
+                desc: "A sophisticated semi-circular (half-moon) console table, designed to sit flush against a wall. The top is protected by glass, showcasing an elaborate painted panel beneath. It features turned spindles and ornate carving along the front, with a small functional drawer.",
+                // Corrected path to match previous correct files:
+                img: "images/t4.jpeg"
+            },
+            {
+                name: "The Grand Colonial Throne Chair",
+                price: 25300,
+                type: "chair",
+                desc: "An imposing high-back armchair featuring deep, ornate carving across the entire frame—from the scrolled arms to the elaborate apron and legs. The seat and tall backrest feature tightly woven cane webbing, offering both comfort and historical elegance. This chair serves as a powerful statement piece.",
+                img: "images/c1.jpeg"
+            },
+            {
+                name: "Rajasthani Wedding Benches (Pair)",
+                price: 20300,
+                type: "chair",
+                desc: "A pair of low, heavily carved wooden stools or small benches, distinguished by their turned posts and detailed, open-work backrests. The carving suggests a traditional Indian influence. They are shown with colorful, patterned cushions (currently wrapped). These pieces are typically used in pairs in entryways or as decorative accent seating.",
+                img: "images/c2.jpeg"
+            },
+            {
+                name: "The Regency Cane Daybed (Chaise)",
+                price: 17300,
+                type: "chair",
+                desc: "A graceful daybed or chaise lounge with a low, reclining profile. It features a woven cane seat and a beautifully carved wooden back and side rail, often referred to as a  or boat-style. The back is accented with detailed balusters and a central carved motif. This piece is perfect for a veranda, sunroom, or formal sitting area.",
+                img: "images/c4.jpeg"
+            },
+            {
+                name: "The Classic Chippendale Dining Set",
+                price: 119300,
+                type: "set",
+                desc: "This set features a rectangular table with substantial turned legs and a rich, deep mahogany finish. The six chairs (two being armchairs, four side chairs) have backs with intricate, open-work Chippendale-style carving (often called 'ladders' or 'ribbons'). The seats are upholstered in a neutral, textured fabric for comfort. This set offers a formal, timeless look.",
+                img: "images/s1.jpeg"
+            },
+            {
+        name: "Contemporary Jali Dining Set",
+        price: 120300,
+        type: "set",
+        desc: "A sleek, modern-meets-traditional set crafted from lighter wood (possibly Sheesham or Mango). The table features clean, angular lines and a subtle jali (lattice) pattern carved into the apron, adding texture. The matching chairs have upholstered light fabric seats and slatted backs with simple geometric jali cutouts. This set provides a bright, airy feel.",
+        img: "images/s3.jpeg"
+      },
+      {
+        name: "The Intricately Carved Sheesham Set",
+        price: 220300,
+        type: "set",
+        desc: "A rustic and highly detailed dining set featuring a dark wood finish. Both the table apron and the chair backs are adorned with deep, hand-carved traditional Indian motifs and balusters. The table has large, turned legs, complementing the classic look of the chairs, which have dark, comfortable padded seats. This set is a true statement piece focused on traditional artistry.",
+        img: "images/s4.jpeg"
+      },
+        ];
+
+        const container = document.getElementById("productContainer");
+        const search = document.getElementById("search");
+        const typeFilter = document.getElementById("typeFilter");
+        const priceFilter = document.getElementById("priceFilter");
+
+        function displayProducts(items) {
+            container.innerHTML = "";
+            items.forEach(item => {
+                container.innerHTML += `
+                    <div class="card">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="card-content">
+                            <h3>${item.name}</h3>
+                            <div class="price">₹ ${item.price.toLocaleString()}</div>
+                            <div class="desc">${item.desc}</div>
+                            <div class="buttons">
+                                <button class="view-btn" onclick="viewProduct('${item.name}')">View</button>
+                                <button class="cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function viewProduct(name) {
+            window.location.href = `details.html?product=${encodeURIComponent(name)}`;
+        }
+
+        function filterProducts() {
+            let filtered = products.filter(p => 
+                p.name.toLowerCase().includes(search.value.toLowerCase())
+            );
+
+            if (typeFilter.value !== "all") {
+                filtered = filtered.filter(p => p.type === typeFilter.value);
+            }
+
+            if (priceFilter.value === "low") {
+                filtered = filtered.filter(p => p.price < 10000);
+            } else if (priceFilter.value === "mid") {
+                filtered = filtered.filter(p => p.price >= 10000 && p.price <= 20000);
+            } else if (priceFilter.value === "high") {
+                filtered = filtered.filter(p => p.price > 20000);
+            }
+
+            displayProducts(filtered);
+        }
+
+        search.addEventListener("input", filterProducts);
+        typeFilter.addEventListener("change", filterProducts);
+        priceFilter.addEventListener("change", filterProducts);
+
+        displayProducts(products);
+    </script>
+</body>
+</html>

@@ -94,7 +94,8 @@ body {
 .icons {
   display: flex;
   gap: 10px;
-  font-size: 18px
+  font-size: 18px;
+  margin-left: 38px;
 }
 
 .nav-toggle {
@@ -441,7 +442,7 @@ body {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   align-items: center;
-  gap: 24px
+  gap: 24px 
 }
 
 .offer-copy h2 {
