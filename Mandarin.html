@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandarin Carved Bed - Product Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #DDDAD0;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #393E46;
+            color: white;
+            font-size: 16px;
+        }
+
+        .header-icons a, .back-link {
+            color: white;
+            font-size: 24px;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .back-link {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-icons a:hover, .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .company-name {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .page-content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 50px;
+            display: grid;
+            grid-template-columns: 1.5fr 2fr 1fr;
+            gap: 40px;
+        }
+
+        .product-title-bar {
+            grid-column: 1 / -1;
+        }
+
+        .product-title-bar h1 {
+            font-size: 2.2em;
+            margin: 0;
+            color: #222831;
+        }
+
+        .image-gallery {
+            position: sticky;
+            top: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .details-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-large {
+            color: #b12704;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .store-link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .description-box {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .description-box h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            color: #393E46;
+        }
+
+        .buy-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            position: sticky;
+            top: 20px;
+        }
+
+        .price-small {
+            font-size: 1.5em;
+            color: #b12704;
+            font-weight: bold;
+        }
+
+        .stock-status {
+            color: green;
+            font-weight: bold;
+        }
+
+        .quantity-control {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .cart-btn-buy {
+            width: 100%;
+            padding: 12px;
+            background: #f7b844;
+            border: none;
+            color: #222;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .cart-btn-buy:hover {
+            background: #e6a733;
+        }
+
+        @media (max-width: 1024px) {
+            .page-content-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+            .buy-box {
+                grid-column: 1 / -1;
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .image-gallery {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-bar">
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        <div class="company-name">The Royal Nakashi Heritage</div>
+        <div class="header-icons">
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+    </div>
+
+    <div class="page-content-wrapper">
+
+        <div class="product-title-bar">
+            <h1>Mandarin Carved Bed</h1>
+            <a href="#" class="store-link">Visit The Royal Nakashi Store</a>
+        </div>
+
+        <!-- IMAGE SECTION -->
+        <div class="image-gallery">
+            <img src="images/5.jpeg" alt="Mandarin Carved Bed" class="main-image">
+            <div style="text-align:center; margin-top:10px;"><small>Click image to view full size</small></div>
+        </div>
+
+        <!-- DETAILS SECTION -->
+        <div class="details-section">
+
+            <div class="price-large">₹ 25,300</div>
+
+            <p style="font-size: 1.1em; color:#333;">
+                Finish Color: Warm Brown / Natural Wood  
+                <br>
+                Material: Solid Wood with Deep Relief Carving
+            </p>
+
+            <div class="description-box">
+                <h3>Product Description</h3>
+                <p>
+                    A robust and beautifully crafted solid wood bed featuring intricate relief carvings inspired by 
+                    traditional East Asian and antique Chinese furniture. The headboard showcases deep carvings of nature— 
+                    birds, foliage, and flowing organic patterns—designed to create a serene, artful aesthetic in the bedroom.  
+                    This bed blends cultural artistry with strong craftsmanship, making it perfect for vintage or 
+                    oriental-inspired interiors.
+                </p>
+
+                <ul style="list-style:none; padding:0;">
+                    <li><i class="fa-solid fa-check" style="color:green;"></i> Deep relief carvings of birds & foliage</li>
+                    <li><i class="fa-solid fa-check" style="color:green;"></i> Inspired by antique Chinese / East Asian motifs</li>
+                    <li><i class="fa-solid fa-check" style="color:green;"></i> Heavy-duty solid wood construction</li>
+                    <li><i class="fa-solid fa-check" style="color:green;"></i> Smooth warm-brown finish</li>
+                    <li><i class="fa-solid fa-check" style="color:green;"></i> Ideal for cultural, vintage & themed interiors</li>
+                </ul>
+            </div>
+
+            <div class="description-box">
+                <h3>Available Offers</h3>
+                <p><i class="fa-solid fa-tag" style="color:#007bff;"></i> Special Discount: Save ₹1,000 on prepaid orders.</p>
+                <p><i class="fa-solid fa-tag" style="color:#007bff;"></i> EMI Options: Available via select credit cards.</p>
+            </div>
+        </div>
+
+        <!-- BUY BOX -->
+        <div class="buy-box">
+            <div class="price-small">₹ 25,300</div>
+            <div class="stock-status">In Stock</div>
+
+            <div class="quantity-control">
+                <label for="qty">Quantity:</label>
+                <select id="qty">
+                    <option>1</option><option>2</option><option>3</option>
+                </select>
+            </div>
+
+            <button class="cart-btn-buy"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+            <button class="cart-btn-buy" style="background:#393E46; color:white;">
+                Buy Now
+            </button>
+
+            <p style="font-size:0.9em; color:#555; margin-top:20px;">
+                <i class="fa-solid fa-truck"></i> Ships from <strong>The Royal Nakashi Heritage</strong>
+            </p>
+            <p style="font-size:0.9em; color:#555;">
+                <i class="fa-solid fa-shield-halved"></i> 1 Year Warranty Included
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
