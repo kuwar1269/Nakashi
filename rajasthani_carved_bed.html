@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthani Carved Bed - Product Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Shared Styles from Index/Details Pages */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #DDDAD0; 
+            margin: 0;
+            padding: 0; 
+            min-height: 100vh;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px; 
+            background-color: #393E46; 
+            color: white; 
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box; 
+        }
+
+        .header-icons a, .back-link {
+            color: white;
+            font-size: 24px;
+            margin-left: 15px; 
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .header-icons a:hover, .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .company-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #EEEEEE; 
+        }
+
+        /* --- NEW LAYOUT STYLES --- */
+
+        .page-content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 50px;
+            display: grid;
+            /* Layout: Image | Details (2fr) | Buy Box (1fr) */
+            grid-template-columns: 1.5fr 2fr 1fr; 
+            gap: 40px;
+        }
+        
+        /* Product Title above the 3 columns */
+        .product-title-bar {
+            grid-column: 1 / -1; /* Spans all columns */
+            margin-bottom: 20px;
+        }
+        
+        .product-title-bar h1 {
+            font-size: 2.2em;
+            color: #222831;
+            margin: 0;
+        }
+
+        /* --- COLUMN 1: IMAGE --- */
+        .image-gallery {
+            position: sticky;
+            top: 20px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-height: 600px;
+            object-fit: cover;
+        }
+        
+        /* --- COLUMN 2: DETAILS --- */
+        .details-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-large {
+            color: #b12704;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 10px 0 20px 0;
+        }
+
+        .store-link {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .description-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+
+        .description-box h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #393E46;
+        }
+
+        /* --- COLUMN 3: BUY BOX --- */
+        .buy-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .buy-box .price-small {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #b12704;
+            margin-bottom: 15px;
+        }
+
+        .stock-status {
+            color: green;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quantity-control label {
+            font-weight: 500;
+        }
+
+        .quantity-control select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .cart-btn-buy {
+            width: 100%;
+            padding: 12px;
+            background-color: #f7b844;
+            color: #222831;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .cart-btn-buy:hover {
+            background-color: #e6a733;
+        }
+
+        /* Responsive Layout for Tablets/Mobile */
+        @media (max-width: 1024px) {
+            .page-content-wrapper {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            .buy-box {
+                grid-column: 1 / -1;
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-content-wrapper {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .header-bar {
+                padding: 10px 20px;
+            }
+            .image-gallery {
+                position: static;
+            }
+            .buy-box {
+                order: 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header-bar">
+        <a href="index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back
+        </a>
+        <div class="company-name">
+            The Royal Nakashi Heritage
+        </div>
+        <div class="header-icons">
+            <a href="#" title="Wishlist"><i class="fa-regular fa-heart"></i></a>
+            <a href="#" title="Shopping Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+    </div>
+
+    <div class="page-content-wrapper">
+        
+        <div class="product-title-bar">
+            <h1>Rajasthani Carved Bed</h1>
+            <a href="#" class="store-link">Visit The Royal Nakashi Store</a>
+        </div>
+
+        <!-- COLUMN 1: IMAGE -->
+        <div class="image-gallery">
+            <!-- Update src with your actual image path -->
+            <img src="images/WhatsApp Image 2025-10-06 at 10.11.21 PM (1).jpeg" alt="Rajasthani Carved Bed" class="main-image">
+            <div style="text-align: center; margin-top: 10px;">
+                <small style="color: #555;">Click image to see full view</small>
+            </div>
+        </div>
+
+        <!-- COLUMN 2: DETAILS -->
+        <div class="details-section">
+            
+            <div class="price-large">₹ 2,18,500</div>
+            
+            <p style="font-size: 1.1em; color: #333;">
+                Finish Color: Natural Teak<br>
+                Material: Solid Teak Wood
+            </p>
+
+            <div class="description-box">
+                <h3>Product Description</h3>
+                <p>
+                    A magnificent solid Teak wood bed with a natural finish. It is defined by an exceptionally tall, 
+                    elaborate headboard featuring detailed jali (lattice) and floral carvings. The footboard and the 
+                    matching carved chest/bench feature complementary intricate carving in a traditional Rajasthani style, 
+                    making this bed a true heritage statement for your bedroom.
+                </p>
+                
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-check" style="color: green; margin-right: 8px;"></i>
+                        Exceptionally tall, ornate headboard with jali and floral motifs
+                    </li>
+                    <li style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-check" style="color: green; margin-right: 8px;"></i>
+                        Hand-carved in traditional Rajasthani style
+                    </li>
+                    <li style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-check" style="color: green; margin-right: 8px;"></i>
+                        Coordinated carved footboard and storage chest/bench
+                    </li>
+                    <li style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-check" style="color: green; margin-right: 8px;"></i>
+                        Solid Teak wood with durable natural finish
+                    </li>
+                    <li style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-check" style="color: green; margin-right: 8px;"></i>
+                        Suitable for King or Queen size mattress (customizable)
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="description-box" style="margin-top: 20px;">
+                <h3>Available Offers</h3>
+                <p style="font-size: 0.9em; color: #333;">
+                    <i class="fa-solid fa-tag" style="color: #007bff; margin-right: 5px;"></i>
+                    <strong>Festive Offer:</strong> Complimentary on-site assembly in select cities.
+                </p>
+                <p style="font-size: 0.9em; color: #333;">
+                    <i class="fa-solid fa-tag" style="color: #007bff; margin-right: 5px;"></i>
+                    <strong>No Cost EMI:</strong> Available on major credit cards.
+                </p>
+            </div>
+            
+        </div>
+
+        <!-- COLUMN 3: BUY BOX -->
+        <div class="buy-box">
+            <div class="price-small">₹ 2,18,500</div>
+            
+            <div class="stock-status">In stock</div>
+            
+            <div class="quantity-control">
+                <label for="quantity">Quantity:</label>
+                <select id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            
+            <button class="cart-btn-buy" onclick="alert('Added to Cart!')">
+                <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+            </button>
+
+            <button class="cart-btn-buy" style="background-color: #393E46; color: white; margin-top: 10px;" onclick="alert('Buying Now!')">
+                Buy Now
+            </button>
+            
+            <div style="font-size: 0.9em; color: #555; margin-top: 20px;">
+                <i class="fa-solid fa-truck" style="margin-right: 5px;"></i>
+                Ships from <strong>The Royal Nakashi Heritage</strong>
+            </div>
+            <div style="font-size: 0.9em; color: #555; margin-top: 5px;">
+                <i class="fa-solid fa-shield-halved" style="margin-right: 5px;"></i>
+                1 Year Warranty Included
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
