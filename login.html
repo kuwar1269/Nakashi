@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nakashi - Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="logo" >
+      ✦ NAKASHI
+    </div>
+  </header>
+
+<div class="login-wrapper">
+
+  <div class="login-container">
+    <h2 class="login-title">Welcome Back</h2>
+
+    <form id="loginForm">
+
+      <div class="input-block">
+        <label>Email</label>
+        <div class="input-icon">
+          <span>📧</span>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+      </div>
+
+      <div class="input-block">
+        <label>Password</label>
+        <div class="input-icon">
+          <span>🔒</span>
+          <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+      </div>
+
+      <button class="login-btn" type="submit">Login</button>
+
+      <p class="login-footer">
+        Don't have an account?
+        <a href="signup.html">Create one</a>
+      </p>
+
+    </form>
+  </div>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+        localStorage.setItem("token", data.token);
+        window.location.href = "index.html";  // redirect after login
+    } else {
+        alert(data.msg);
+    }
+});
+</script>
+
+</body>
+</html>
