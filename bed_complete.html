@@ -1,300 +1,670 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Artisan Sleep Collection</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <style>
-        /* GLOBAL RESET & BODY STYLES */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #DDDAD0; 
-            margin: 0;
-            padding: 0; 
-        }
+  <meta charset="UTF-8" />
+  <title>The Artisan Sleep Collection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        /* === HEADER BAR (Dark Navigation) FIXES === */
-        .header-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px; 
-            background-color: #09122C; 
-            color: white; 
-            font-size: 16px;
-            width: 100%;
-            box-sizing: border-box; 
-        }
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #DDDAD0;
+      margin: 0;
+    }
 
-        .header-icons a {
-            color: white;
-            font-size: 24px;
-            margin-left: 15px; 
-            text-decoration: none;
-        }
+    a { text-decoration: none; }
 
-        .company-name {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: white; 
-        }
+    /* ================= HEADER ================= */
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 0 40px;
+    }
 
-        /* === MAIN HEADING & FILTERS === */
-        h1 {
-            text-align: center;
-            color: #222831; 
-            /* Add margin to separate it visually from the header bar */
-            margin-top: 30px; 
-        }
+    .header-inner {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      height: 70px;
+    }
 
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            /* Adjust margin to create space above/below filters */
-            margin: 20px 0 30px 0; 
-        }
+    /* LOGO */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 22px;
+      color: #000;
+    }
 
-        input[type="text"], select {
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+    .logo {
+      color: #000;
+      letter-spacing: 1px;
+    }
 
-        /* === PRODUCT CONTAINER & CARDS === */
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 10px 50px;
-        }
+    /* RIGHT SIDE WRAPPER */
+    .right-group {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
 
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
-            overflow: hidden;
-            transition: transform 0.2s;
-        }
+    /* NAV LINKS */
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
 
-        .card:hover {
-            transform: scale(1.03);
-        }
+    .nav-links a {
+      font-size: 16px;
+      color: #000;
+      font-weight: 500;
+    }
 
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
+    .nav-links a:hover { color: #1e9b6c; }
 
-        .card-content {
-            padding: 15px;
-        }
+    .nav-links .active {
+      color: #1e9b6c;
+      font-weight: 600;
+    }
 
-        .card-content h3 {
-            margin: 0;
-            font-size: 18px;
-            color: #333;
-        }
+    /* ICONS + CART BADGE */
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
-        .price {
-            color: #b12704;
-            font-weight: bold;
-            margin-top: 5px;
-        }
+    .icon.cart-icon {
+      position: relative;
+    }
 
-        .desc {
-            font-size: 14px;
-            color: #555;
-            margin: 10px 0;
-        }
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      background: #ff4444;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
 
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
+    /* ================= PAGE TITLE ================= */
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+      color: #222831;
+    }
 
-        button {
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        
-        .view-btn {
-            background-color: #007bff;
-            color: white;
-        }
+    /* ================= FILTERS ================= */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
 
-        .view-btn:hover {
-            background-color: #0056b3;
-        }
+    input, select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      min-width: 150px;
+    }
 
-        .cart-btn {
-            background-color: #333;
-            color: white;
-        }
+    /* ================= PRODUCT GRID ================= */
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 10px 50px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-        .cart-btn:hover {
-            background-color: #000;
-        }
-    </style>
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover { 
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin: 0 0 10px 0;
+      color: #222831;
+      font-size: 1.2em;
+    }
+
+    .price {
+      color: #b12704;
+      font-weight: bold;
+      font-size: 1.3em;
+      margin: 10px 0;
+    }
+
+    .desc {
+      font-size: 14px;
+      margin: 10px 0 15px 0;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    button {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+      flex: 1;
+    }
+
+    .view-btn {
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+    }
+
+    .view-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+    }
+
+    /* 🔥 CHANGED TO BLACK THEME */
+    .cart-btn {
+      background: #333 !important;
+      color: white !important;
+    }
+
+    .cart-btn:hover:not(.added) {
+      background: #222 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .cart-btn.added {
+      background: #000 !important; /* Pure Black */
+      animation: pulse 0.6s ease;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* CART MODAL */
+    .cart-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cart-modal-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 500px;
+      max-height: 80vh;
+      width: 90%;
+      overflow-y: auto;
+      position: relative;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cart-header {
+      padding: 25px 25px 20px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h2 {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #222831;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-cart:hover {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .cart-items {
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-weight: 600;
+      margin: 0 0 5px 0;
+      color: #222;
+    }
+
+    .cart-item-price {
+      color: #666;
+      margin: 0 0 8px 0;
+    }
+
+    .quantity-select {
+      padding: 4px 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      background: white;
+    }
+
+    .cart-item-total {
+      font-weight: bold;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .remove-btn {
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .cart-footer {
+      padding: 20px 25px;
+      border-top: 1px solid #eee;
+      background: #f8f9fa;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #222831;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .filters { flex-direction: column; align-items: center; }
+      input, select { width: 250px; }
+      .product-container { grid-template-columns: 1fr; padding: 10px 20px; }
+    }
+  </style>
 </head>
+
 <body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <!-- LEFT LOGO -->
+    <div class="brand">
+      <span>✦</span>
+      <a href="index.html" class="logo">NAKASHI</a>
+    </div>
+
+    <!-- RIGHT SIDE NAV + ICONS -->
+    <div class="right-group">
+      <nav class="nav-links">
+        <a href="allproduct.html">All Products</a>
+        <a href="bed_complete.html">beds</a>
+        <a href="Sofa.html">sofas</a>
+        <a href="table and chair.html">table and chair</a>
+        <a href="themes.html" class="active">Themes</a>
+      </nav>
+
+      <div class="icons">
+        <span class="icon cart-icon" id="cartIcon">🛒</span>
+        <span class="icon">👤</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<h1>The Artisan Sleep Collection</h1>
+
+<!-- ================= FILTERS ================= -->
+<div class="filters">
+  <input type="text" id="search" placeholder="Search Beds">
+  <select id="typeFilter">
+    <option value="all">All Types</option>
+    <option value="traditionalbed">Traditional Bed</option>
+    <option value="modernbed">Modern Bed</option>
+  </select>
+  <select id="priceFilter">
+    <option value="all">All Prices</option>
+    <option value="low">Below ₹100,000</option>
+    <option value="mid">₹100,000 - ₹200,000</option>
+    <option value="high">Above ₹200,000</option>
+  </select>
+</div>
+
+<!-- ================= PRODUCTS ================= -->
+<div class="product-container" id="productContainer"></div>
+
+<!-- Dialogflow -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="NakashiBot"
+  agent-id="56f65464-fb5f-4121-9d08-94b01bc948b5"
+  language-code="en">
+</df-messenger>
+
+<script>
+// 🔥 COMPLETE EMBEDDED CART SYSTEM - BLACK THEME
+let cart = JSON.parse(localStorage.getItem('nakashiCart')) || [];
+
+function updateCartCount() {
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartIcon = document.getElementById('cartIcon');
+  let badge = cartIcon.querySelector('.cart-badge');
+  
+  if (totalItems > 0) {
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'cart-badge';
+      cartIcon.appendChild(badge);
+    }
+    badge.textContent = totalItems > 99 ? '99+' : totalItems;
+  } else if (badge) {
+    badge.remove();
+  }
+}
+
+function addToCart(name, price, image) {
+  const existingItem = cart.find(item => item.name === name);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ name, price: parseFloat(price), image, quantity: 1 });
+  }
+  
+  localStorage.setItem('nakashiCart', JSON.stringify(cart));
+  updateCartCount();
+  
+  // Visual feedback - BLACK
+  const btn = event.target.closest('.cart-btn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Added! ✓';
+  btn.classList.add('added');
+  
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.classList.remove('added');
+  }, 1500);
+}
+
+function initCartButtons() {
+  document.querySelectorAll('.cart-btn').forEach(btn => {
+    btn.onclick = function(e) {
+      e.preventDefault();
+      const name = this.dataset.name || this.getAttribute('data-name');
+      const price = this.dataset.price || this.getAttribute('data-price');
+      const image = this.dataset.image || this.getAttribute('data-image');
+      addToCart(name, price, image);
+    };
+  });
+  
+  // Cart icon click
+  const cartIcon = document.getElementById('cartIcon');
+  cartIcon.onclick = showCartModal;
+  
+  updateCartCount();
+}
+
+function showCartModal() {
+  const modal = document.createElement('div');
+  modal.className = 'cart-modal';
+  modal.innerHTML = `
+    <div class="cart-modal-content">
+      <div class="cart-header">
+        <h2>Shopping Cart (${cart.length} items)</h2>
+        <button class="close-cart" onclick="this.closest('.cart-modal').remove()">×</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cartTotal">₹0</span>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+      </div>
+    </div>
+  `;
+  
+  function renderCart() {
+    const container = modal.querySelector('#cartItems');
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
-    <div class="header-bar">
-        <div class="company-name">
-            The Royal Nakashi Heritage
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="empty-cart">Your cart is empty 😊</div>';
+      modal.querySelector('#cartTotal').textContent = '₹0';
+      return;
+    }
+    
+    container.innerHTML = cart.map((item, index) => `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="cart-item-info">
+          <div class="cart-item-title">${item.name}</div>
+          <div class="cart-item-price">₹${item.price.toLocaleString()} 
+            <select class="quantity-select" onchange="updateQuantity(${index}, this.value)">
+              ${[1,2,3,4,5].map(q => `<option ${q === item.quantity ? 'selected' : ''} value="${q}">${q}</option>`).join('')}
+            </select>
+          </div>
         </div>
-        <div class="header-icons">
-            <a href="#" title="Wishlist"><i class="fa-regular fa-heart"></i></a>
-            <a href="#" title="Shopping Cart"><i class="fa-solid fa-bag-shopping"></i></a>
+        <div>
+          <div class="cart-item-total">₹${(item.price * item.quantity).toLocaleString()}</div>
+          <button class="remove-btn" onclick="removeFromCart(${index});renderCart();">Remove</button>
         </div>
-    </div>
-    <h1>The Artisan Sleep Collection</h1>
+      </div>
+    `).join('');
+    
+    modal.querySelector('#cartTotal').textContent = `₹${total.toLocaleString()}`;
+  }
+  
+  renderCart();
+  document.body.appendChild(modal);
+  
+  // Close on outside click
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.remove();
+  };
+}
 
-    <div class="filters">
-        <input type="text" id="search" placeholder="Search (Modern , Traditional)">
-        <select id="typeFilter">
-            <option value="all">All Types</option>
-            <option value="traditionalbed">Traditional Bed</option>
-            <option value="modernbed">Modern Bed</option>
-        </select>
-        <select id="priceFilter">
-            <option value="all">All Prices</option>
-            <option value="low">Below ₹100,000</option>
-            <option value="mid">₹100,000 - ₹200,000</option>
-            <option value="high">Above ₹200,000</option>
-        </select>
-    </div>
+function updateQuantity(index, qty) {
+  cart[index].quantity = parseInt(qty);
+  localStorage.setItem('nakashiCart', JSON.stringify(cart));
+  updateCartCount();
+}
 
-    <div class="product-container" id="productContainer"></div>
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem('nakashiCart', JSON.stringify(cart));
+  updateCartCount();
+}
 
-    <script>
-        const products = [
-            {
-                name: "Canopy Bed",
-                price: 322000,
-                type: "traditionalbed",
-                desc: "A highly ornamental, dark-stained wooden bed featuring four tall, spirally carved posts. The headboard and footboard panels have intricate, deep floral and foliage carvings, suggesting a classic Mughal or Colonial-era Indian influence. It is a very formal, regal, and architectural style of bed.",
-                // Corrected path to match previous correct files:
-                img: "images/WhatsApp Image 2025-10-06 at 10.11.21 PM.jpeg",
-            },
-            {
-                name: "Rajasthani Carved Bed",
-                price: 218500,
-                type: "traditionalbed",
-                desc: "A magnificent solid Teak wood bed with a natural finish. It is defined by an exceptionally tall, elaborate headboard featuring detailed jali (lattice) and floral carvings. The footboard and chest/bench also feature complementary intricate carving in a traditional Rajasthani style.",
-                // Corrected path to match previous correct files:
-                img: "images/WhatsApp Image 2025-10-06 at 10.11.21 PM (1).jpeg"
-            },
-            {
-                name: "Jali Style Bed",
-                price: 327500,
-                type: "traditionalbed",
-                // FIX 4: Corrected image path to match previous correct files:
-                desc: "A darker wood bed with decorative, turned wooden corner posts (but not full-height four-posters). The headboard and footboard feature an open, geometric jali-like design, with a unique detail of square, possibly hand-painted ceramic or tile inserts with floral motifs, a feature sometimes seen in South Indian Chettinad or vintage design",
-                img: "images/WhatsApp Image 2025-10-06 at 10.11.22 PM.jpeg" 
-            },
-            {
-                name: "Sheesham Wood Bed",
-                price: 120300,
-                type: "modernbed",
-                desc: "This is more of a bedroom architectural feature than just a bed frame. The bed itself is a low-profile platform bed, but it is beautifully integrated into a wooden arch surround that frames the headboard wall and extends to the ceiling. The arch and ceiling carvings use classic Mughal/Islamic architectural motifs, such as a cusped arch and geometric jali patterns.",
-                // Corrected path to match previous correct files:
-                img: "images/WhatsApp Image 2025-10-06 at 10.11.22 PM (1).jpeg"
-            },
-            {
-                name: "Mandarin Carved Bed",
-                price: 25300,
-                type: "modernbed",
-                desc: "A robust, solid wood bed featuring intricate relief carvings of nature (possibly birds and foliage) on the headboard, inspired by traditional East Asian or antique Chinese style.",
-                img: "images/5.jpeg"
-            },
-            {
-                name: "Colonial Spindle Bed",
-                price: 20300,
-                type: "traditionalbed",
-                desc: "A traditional dark-stained bed with a subtly arched headboard and four classically turned posts, evoking a vintage, early 20th-century colonial or English country aesthetic.",
-                img: "images/6.jpeg"
-            },
-            {
-                name: "Chettinad Upholstered Bed",
-                price: 17300,
-                type: "traditionalbed",
-                // FIX 5: CRITICAL MISSING COMMA (JavaScript syntax error)
-                desc: "A dark-wood four-poster bed with deeply turned posts and a decorative, upholstered headboard featuring a traditional Indian geometric or ikat-style print in red and cream",
-                img: "images/7.jpeg"
-            },
-            {
-                name: "Jaali Platform Bed",
-                price: 19300,
-                type: "modernbed",
-                desc: "A contemporary wooden bed with a low-to-the-ground platform style, featuring modern geometric and traditional Indian jaali (lattice) cut-out designs on both the headboard and footboard.",
-                img: "images/8.jpeg"
-            },
-        ];
+function checkout() {
+  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  alert(`🛒 Proceeding to checkout!\n\n${cart.length} items\nTotal: ₹${total.toLocaleString()}\n\n(Connect payment gateway here)`);
+}
 
-        const container = document.getElementById("productContainer");
-        const search = document.getElementById("search");
-        const typeFilter = document.getElementById("typeFilter");
-        const priceFilter = document.getElementById("priceFilter");
+// ================= PAGE-SPECIFIC CODE =================
+const products = [
+  { name:"Canopy Bed", price:322000, type:"traditionalbed", desc:"Ornamental carved four-post royal bed.", img:"images/baackground image-1.png", link:"canopy_bed.html", id:"bed-canopy" },
+  { name:"Rajasthani Carved Bed", price:218500, type:"traditionalbed", desc:"Tall headboard with lattice carving.", img:"images/royal-bed-1.jpeg", link:"rajasthani_carved_bed.html", id:"bed-rajasthani" },
+  { name:"Jali Style Bed", price:327500, type:"traditionalbed", desc:"Geometric jali carved wooden bed.", img:"images/royal-bed-2.jpeg", link:"jali_stle_bed.html", id:"bed-jali" },
+  { name:"Sheesham Wood Bed", price:120300, type:"modernbed", desc:"Low-profile modern platform bed.", img:"images/royal-bed-3.jpeg", link:"Sheesham_bed.html", id:"bed-sheesham" },
+  { name:"Mandarin Carved Bed", price:25300, type:"modernbed", desc:"Chinese inspired carved wooden bed.", img:"images/img 5.jpg", link:"Mandarin.html", id:"bed-mandarin" },
+  { name:"Colonial Spindle Bed", price:20300, type:"traditionalbed", desc:"Vintage colonial spindle design.", img:"images/royal-bed-4.jpeg", link:"Colonial_bed.html", id:"bed-colonial" }
+];
 
-        function displayProducts(items) {
-            container.innerHTML = "";
-            items.forEach(item => {
-                container.innerHTML += `
-                    <div class="card">
-                        <img src="${item.img}" alt="${item.name}">
-                        <div class="card-content">
-                            <h3>${item.name}</h3>
-                            <div class="price">₹ ${item.price.toLocaleString()}</div>
-                            <div class="desc">${item.desc}</div>
-                            <div class="buttons">
-                                <button class="view-btn" onclick="viewProduct('${item.name}')">View</button>
-                                <button class="cart-btn">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
+const container = document.getElementById("productContainer");
+const search = document.getElementById("search");
+const typeFilter = document.getElementById("typeFilter");
+const priceFilter = document.getElementById("priceFilter");
 
-        function viewProduct(name) {
-            window.location.href = `details.html?product=${encodeURIComponent(name)}`;
-        }
+function displayProducts(items) {
+  container.innerHTML = "";
+  items.forEach(item => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${item.img}" alt="${item.name}">
+        <div class="card-content">
+          <h3>${item.name}</h3>
+          <div class="price">₹${item.price.toLocaleString()}</div>
+          <div class="desc">${item.desc}</div>
+          <div class="buttons">
+            <a href="${item.link}">
+              <button class="view-btn">View</button>
+            </a>
+            <button class="cart-btn" data-name="${item.name}" data-price="${item.price}" data-image="${item.img}">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>`;
+  });
+  
+  // Re-init cart buttons after rendering
+  setTimeout(initCartButtons, 100);
+}
 
-        function filterProducts() {
-            let filtered = products.filter(p => 
-                p.name.toLowerCase().includes(search.value.toLowerCase())
-            );
+function filterProducts() {
+  let filtered = products.filter(p =>
+    p.name.toLowerCase().includes(search.value.toLowerCase())
+  );
 
-            if (typeFilter.value !== "all") {
-                filtered = filtered.filter(p => p.type === typeFilter.value);
-            }
+  if (typeFilter.value !== "all")
+    filtered = filtered.filter(p => p.type === typeFilter.value);
 
-            if (priceFilter.value === "low") {
-                filtered = filtered.filter(p => p.price < 100000);
-            } else if (priceFilter.value === "mid") {
-                filtered = filtered.filter(p => p.price >= 100000 && p.price <= 200000);
-            } else if (priceFilter.value === "high") {
-                filtered = filtered.filter(p => p.price > 200000);
-            }
+  if (priceFilter.value === "low")
+    filtered = filtered.filter(p => p.price < 100000);
+  else if (priceFilter.value === "mid")
+    filtered = filtered.filter(p => p.price >= 100000 && p.price <= 200000);
+  else if (priceFilter.value === "high")
+    filtered = filtered.filter(p => p.price > 200000);
 
-            displayProducts(filtered);
-        }
+  displayProducts(filtered);
+}
 
-        search.addEventListener("input", filterProducts);
-        typeFilter.addEventListener("change", filterProducts);
-        priceFilter.addEventListener("change", filterProducts);
+// Initialize everything
+document.addEventListener('DOMContentLoaded', function() {
+  displayProducts(products);
+  search.addEventListener("input", filterProducts);
+  typeFilter.addEventListener("change", filterProducts);
+  priceFilter.addEventListener("change", filterProducts);
+  initCartButtons();
+});
+</script>
 
-        displayProducts(products);
-    </script>
 </body>
 </html>

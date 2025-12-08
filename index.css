@@ -585,3 +585,23 @@ copyright {
     grid-template-columns: 1fr
   }
 }
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.icon:last-child, .fa-bag-shopping {
+    position: relative;
+    cursor: pointer;
+}
